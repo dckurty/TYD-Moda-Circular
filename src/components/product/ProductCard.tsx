@@ -15,7 +15,7 @@ export function ProductCard({
   product: Product;
   onClick?: () => void;
 }) {
-  const imageSrc = product.images?.[0]?.trim() || "/placeholder.svg";
+  const imageSrc = product.images?.[0]?.trim() || "/Logo.jpeg";
 
   const innerContent = (
     <Card className="group overflow-hidden border-transparent bg-transparent shadow-none transition-all hover:border-border hover:shadow-sm">

@@ -73,6 +73,7 @@ export interface Product {
   visibleOnline?: boolean;
 }
 
+/** Catálogo inicial: cada `images[]` debe existir en `public/` (evita 404 en Vercel). */
 export const products: Product[] = [
   {
     id: "p1",
@@ -84,7 +85,7 @@ export const products: Product[] = [
     sizes: ["S"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "100% de la prenda reciclada, fomentando la moda circular en Chile.",
-    images: ["/catalogo-1/1.png"],
+    images: ["/hero-casual.png"],
     isUnique: false
   },
   {
@@ -97,7 +98,7 @@ export const products: Product[] = [
     sizes: ["M"],
     condition: "en buen estado",
     environmentalImpact: "Evitamos la contaminación química asociada a tintes nuevos.",
-    images: ["/catalogo-1/2.png"],
+    images: ["/hero-mujer-fresh.png"],
     isUnique: true
   },
   {
@@ -110,7 +111,7 @@ export const products: Product[] = [
     sizes: ["L"],
     condition: "en excelente estado",
     environmentalImpact: "Upcycling de material procedente de mermas.",
-    images: ["/catalogo-1/3.png"],
+    images: ["/hero-hombre.png"],
     isUnique: false
   },
   {
@@ -123,7 +124,7 @@ export const products: Product[] = [
     sizes: ["XL"],
     condition: "en excelente estado",
     environmentalImpact: "Extiende la vida útil, evitando emisiones de carbono.",
-    images: ["/catalogo-1/4.png"],
+    images: ["/parka-kenzo-como-referencia.png"],
     isUnique: true
   },
   {
@@ -136,7 +137,7 @@ export const products: Product[] = [
     sizes: ["Única"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "Ahorro de 3,500 litros de agua frente a fabricación nueva.",
-    images: ["/catalogo-1/5.png"],
+    images: ["/parka-kenzo-3-vistas-1360x768.png"],
     isUnique: false
   },
   {
@@ -149,7 +150,7 @@ export const products: Product[] = [
     sizes: ["XS"],
     condition: "en buen estado",
     environmentalImpact: "100% de la prenda reciclada, fomentando la moda circular en Chile.",
-    images: ["/catalogo-1/6.png"],
+    images: ["/hero-mujer-casual.png"],
     isUnique: true
   },
   {
@@ -162,7 +163,7 @@ export const products: Product[] = [
     sizes: ["S"],
     condition: "en excelente estado",
     environmentalImpact: "Evitamos la contaminación química asociada a tintes nuevos.",
-    images: ["/catalogo-1/7.png"],
+    images: ["/foto_grupal_editada.png"],
     isUnique: false
   },
   {
@@ -175,7 +176,7 @@ export const products: Product[] = [
     sizes: ["M"],
     condition: "en excelente estado",
     environmentalImpact: "Upcycling de material procedente de mermas.",
-    images: ["/catalogo-1/8.png"],
+    images: ["/parka-kenzo-como-referencia-1360x768.png"],
     isUnique: true
   },
   {
@@ -188,7 +189,7 @@ export const products: Product[] = [
     sizes: ["L"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "Extiende la vida útil, evitando emisiones de carbono.",
-    images: ["/catalogo-1/9.png"],
+    images: ["/hero-casual.png"],
     isUnique: false
   },
   {
@@ -201,7 +202,7 @@ export const products: Product[] = [
     sizes: ["XL"],
     condition: "en buen estado",
     environmentalImpact: "Ahorro de 3,500 litros de agua frente a fabricación nueva.",
-    images: ["/catalogo-1/10.png"],
+    images: ["/hero-mujer-fresh.png"],
     isUnique: true
   },
   {
@@ -214,7 +215,7 @@ export const products: Product[] = [
     sizes: ["Única"],
     condition: "en excelente estado",
     environmentalImpact: "100% de la prenda reciclada, fomentando la moda circular en Chile.",
-    images: ["/catalogo-1/11.png"],
+    images: ["/hero-hombre.png"],
     isUnique: false
   },
   {
@@ -227,7 +228,7 @@ export const products: Product[] = [
     sizes: ["XS"],
     condition: "en excelente estado",
     environmentalImpact: "Evitamos la contaminación química asociada a tintes nuevos.",
-    images: ["/catalogo-1/12.png"],
+    images: ["/parka-kenzo-como-referencia.png"],
     isUnique: true
   },
   {
@@ -240,7 +241,7 @@ export const products: Product[] = [
     sizes: ["S"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "Upcycling de material procedente de mermas.",
-    images: ["/catalogo-1/13.png"],
+    images: ["/parka-kenzo-3-vistas-1360x768.png"],
     isUnique: false
   },
   {
@@ -253,7 +254,7 @@ export const products: Product[] = [
     sizes: ["M"],
     condition: "en buen estado",
     environmentalImpact: "Extiende la vida útil, evitando emisiones de carbono.",
-    images: ["/catalogo-1/14.png"],
+    images: ["/hero-mujer-casual.png"],
     isUnique: true
   },
   {
@@ -266,7 +267,7 @@ export const products: Product[] = [
     sizes: ["L"],
     condition: "en excelente estado",
     environmentalImpact: "Ahorro de 3,500 litros de agua frente a fabricación nueva.",
-    images: ["/catalogo-1/15.png"],
+    images: ["/foto_grupal_editada.png"],
     isUnique: false
   },
   {
@@ -279,7 +280,7 @@ export const products: Product[] = [
     sizes: ["XL"],
     condition: "en excelente estado",
     environmentalImpact: "100% de la prenda reciclada, fomentando la moda circular en Chile.",
-    images: ["/catalogo-1/16.png"],
+    images: ["/parka-kenzo-como-referencia-1360x768.png"],
     isUnique: true
   },
   {
@@ -292,7 +293,7 @@ export const products: Product[] = [
     sizes: ["Única"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "Evitamos la contaminación química asociada a tintes nuevos.",
-    images: ["/catalogo-1/17.png"],
+    images: ["/hero-casual.png"],
     isUnique: false
   },
   {
@@ -305,7 +306,7 @@ export const products: Product[] = [
     sizes: ["XS"],
     condition: "en buen estado",
     environmentalImpact: "Upcycling de material procedente de mermas.",
-    images: ["/catalogo-1/18.png"],
+    images: ["/hero-mujer-fresh.png"],
     isUnique: true
   },
   {
@@ -318,7 +319,7 @@ export const products: Product[] = [
     sizes: ["S"],
     condition: "en excelente estado",
     environmentalImpact: "Extiende la vida útil, evitando emisiones de carbono.",
-    images: ["/catalogo-1/19.png"],
+    images: ["/hero-hombre.png"],
     isUnique: false
   },
   {
@@ -331,7 +332,7 @@ export const products: Product[] = [
     sizes: ["M"],
     condition: "en excelente estado",
     environmentalImpact: "Ahorro de 3,500 litros de agua frente a fabricación nueva.",
-    images: ["/catalogo-1/20.png"],
+    images: ["/parka-kenzo-como-referencia.png"],
     isUnique: true
   },
   {
@@ -344,7 +345,7 @@ export const products: Product[] = [
     sizes: ["L"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "100% de la prenda reciclada, fomentando la moda circular en Chile.",
-    images: ["/catalogo-1/21.png"],
+    images: ["/parka-kenzo-3-vistas-1360x768.png"],
     isUnique: false
   },
   {
@@ -357,7 +358,7 @@ export const products: Product[] = [
     sizes: ["XL"],
     condition: "en buen estado",
     environmentalImpact: "Evitamos la contaminación química asociada a tintes nuevos.",
-    images: ["/catalogo-1/22.png"],
+    images: ["/hero-mujer-casual.png"],
     isUnique: true
   },
   {
@@ -370,7 +371,7 @@ export const products: Product[] = [
     sizes: ["Única"],
     condition: "en excelente estado",
     environmentalImpact: "Upcycling de material procedente de mermas.",
-    images: ["/catalogo-1/23.png"],
+    images: ["/foto_grupal_editada.png"],
     isUnique: false
   },
   {
@@ -383,7 +384,7 @@ export const products: Product[] = [
     sizes: ["XS"],
     condition: "en excelente estado",
     environmentalImpact: "Extiende la vida útil, evitando emisiones de carbono.",
-    images: ["/catalogo-1/24.png"],
+    images: ["/parka-kenzo-como-referencia-1360x768.png"],
     isUnique: true
   },
   {
@@ -396,7 +397,7 @@ export const products: Product[] = [
     sizes: ["S"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "Ahorro de 3,500 litros de agua frente a fabricación nueva.",
-    images: ["/catalogo-1/25.png"],
+    images: ["/hero-casual.png"],
     isUnique: false
   },
   {
@@ -409,7 +410,7 @@ export const products: Product[] = [
     sizes: ["M"],
     condition: "en buen estado",
     environmentalImpact: "100% de la prenda reciclada, fomentando la moda circular en Chile.",
-    images: ["/catalogo-1/26.png"],
+    images: ["/hero-mujer-fresh.png"],
     isUnique: true
   },
   {
@@ -422,7 +423,7 @@ export const products: Product[] = [
     sizes: ["L"],
     condition: "en excelente estado",
     environmentalImpact: "Evitamos la contaminación química asociada a tintes nuevos.",
-    images: ["/catalogo-1/27.png"],
+    images: ["/hero-hombre.png"],
     isUnique: false
   },
   {
@@ -435,7 +436,7 @@ export const products: Product[] = [
     sizes: ["XL"],
     condition: "en excelente estado",
     environmentalImpact: "Upcycling de material procedente de mermas.",
-    images: ["/catalogo-1/28.png"],
+    images: ["/parka-kenzo-como-referencia.png"],
     isUnique: true
   },
   {
@@ -448,7 +449,7 @@ export const products: Product[] = [
     sizes: ["Única"],
     condition: "nuevo con etiqueta",
     environmentalImpact: "Extiende la vida útil, evitando emisiones de carbono.",
-    images: ["/catalogo-1/29.png"],
+    images: ["/parka-kenzo-3-vistas-1360x768.png"],
     isUnique: false
   },
   {
@@ -461,7 +462,7 @@ export const products: Product[] = [
     sizes: ["XS"],
     condition: "en buen estado",
     environmentalImpact: "Ahorro de 3,500 litros de agua frente a fabricación nueva.",
-    images: ["/catalogo-1/30.png"],
+    images: ["/hero-mujer-casual.png"],
     isUnique: true
   },
   {
@@ -474,7 +475,7 @@ export const products: Product[] = [
     sizes: ["S"],
     condition: "en excelente estado",
     environmentalImpact: "100% de la prenda reciclada, fomentando la moda circular en Chile.",
-    images: ["/catalogo-1/31.png"],
+    images: ["/foto_grupal_editada.png"],
     isUnique: false
   }
 ];

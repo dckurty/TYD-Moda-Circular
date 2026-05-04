@@ -59,7 +59,7 @@ export default function CarritoPage() {
                   {/* Imagen */}
                   <div className="relative w-28 h-36 rounded-2xl overflow-hidden bg-gray-50 shrink-0">
                     <Image 
-                      src={item.product.images[0] || "/placeholder.jpg"} 
+                      src={item.product.images[0] || "/Logo.jpeg"} 
                       alt={item.product.name}
                       fill
                       className="object-contain object-center p-1"
