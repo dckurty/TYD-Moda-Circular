@@ -3,6 +3,10 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { Product, products as staticProducts } from "@/lib/data/products";
 import { saveCatalogToServer } from "@/app/actions/catalog";
+import {
+  catalogImagesNeedMigration,
+  fixLegacyCatalogImageUrls,
+} from "@/lib/fixLegacyCatalogImageUrls";
 
 export const CATALOG_STORAGE_KEY = "tyd-admin-products-storage";
 
@@ -27,6 +31,8 @@ interface ProductStore {
   deleteProduct: (id: string) => void;
   clearAllProductImages: () => void;
   initializeProductsIfNeeded: () => void;
+  /** Reemplaza rutas `/catalogo-1/*.png` rotas y sincroniza Blob si hubo cambios. */
+  migrateCatalogImagesIfNeeded: () => void;
 }
 
 export const useProductStore = create<ProductStore>()(
@@ -71,6 +77,16 @@ export const useProductStore = create<ProductStore>()(
         if (!state.products || state.products.length === 0) {
           set({ products: [...staticProducts] });
         }
+      },
+      migrateCatalogImagesIfNeeded: () => {
+        const state = get();
+        if (!state.products?.length || !catalogImagesNeedMigration(state.products)) return;
+        const fixed = fixLegacyCatalogImageUrls(state.products);
+        set({
+          products: fixed,
+          catalogUpdatedAt: Date.now(),
+        });
+        scheduleServerSync(get);
       },
     }),
     {
