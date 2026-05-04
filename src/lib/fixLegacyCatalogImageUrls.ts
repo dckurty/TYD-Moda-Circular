@@ -1,4 +1,4 @@
-import type { Product } from "@/lib/data/products";
+import { type Product, CATALOG_LOCAL_SEED_SLOTS } from "@/lib/data/products";
 
 /** Rutas que usamos como parche temporal; se normalizan a `/catalogo-1/{n}.png`. */
 const TEMP_PUBLIC_PATHS = new Set([
@@ -15,7 +15,7 @@ const TEMP_PUBLIC_PATHS = new Set([
 function catalogSlotForProduct(p: Product, index: number): string {
   const idNum = parseInt(String(p.id).replace(/\D/g, ""), 10);
   const n = Number.isFinite(idNum) ? idNum : index + 1;
-  const slot = ((n - 1) % 31) + 1; // 1..31 encaja con archivos en public/catalogo-1/
+  const slot = ((Math.max(n, 1) - 1) % CATALOG_LOCAL_SEED_SLOTS) + 1;
   return `/catalogo-1/${slot}.png`;
 }
 
