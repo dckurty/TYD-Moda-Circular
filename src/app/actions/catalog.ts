@@ -1,7 +1,9 @@
 "use server";
 
+import { cookies } from "next/headers";
 import { get, put } from "@vercel/blob";
 import type { Product } from "@/lib/data/products";
+import { ADMIN_COOKIE, verifyAdminSessionToken } from "@/lib/adminSession";
 
 const CATALOG_PATH = "tyd/catalog.json";
 
@@ -32,6 +34,9 @@ export async function saveCatalogToServer(
   updatedAt: number
 ): Promise<{ ok: boolean }> {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return { ok: false };
+  const jar = await cookies();
+  const sessionOk = await verifyAdminSessionToken(jar.get(ADMIN_COOKIE)?.value);
+  if (!sessionOk) return { ok: false };
   const payload: CatalogPayload = { products, updatedAt };
   try {
     await put(CATALOG_PATH, JSON.stringify(payload), {

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/product/ProductCard";
-import { Plus, PackageSearch, Settings, Users, Shirt, Image as ImageIcon, Trash2, Images, ImageOff, EyeOff } from "lucide-react";
+import { Plus, PackageSearch, Settings, Users, Shirt, Image as ImageIcon, Trash2, Images, ImageOff, EyeOff, LogOut } from "lucide-react";
 import { CATALOG_STORAGE_KEY, useProductStore } from "@/lib/store/productStore";
 import { useHydratedCatalog } from "@/lib/store/useHydratedCatalog";
 import { useSettingsStore } from "@/lib/store/settingsStore";
@@ -135,6 +135,15 @@ export default function AdminPage() {
     window.alert("Se quitaron las fotos del catálogo.");
   };
 
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/logout", { method: "POST", credentials: "include" });
+    } catch {
+      /* seguir igual */
+    }
+    window.location.href = "/admin/login";
+  };
+
   if (!mounted) {
     return <div className="min-h-screen flex items-center justify-center bg-background"><p>Cargando panel...</p></div>;
   }
@@ -144,7 +153,7 @@ export default function AdminPage() {
       <div className="container mx-auto px-4 max-w-7xl">
         
         {/* Header del Admin */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 px-8 py-10 bg-zinc-900 rounded-[2.5rem] mb-8 shadow-2xl shadow-zinc-900/10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 px-8 py-10 bg-zinc-900 rounded-[2.5rem] mb-8 shadow-2xl shadow-zinc-900/10">
           <div className="space-y-4">
             <div className="flex items-center space-x-2 text-white">
               <Settings className="h-5 w-5 text-[#FF1493]" />
@@ -157,6 +166,15 @@ export default function AdminPage() {
               Administra tu inventario de prendas o gestiona las fotografías oficiales de la marca desde un solo lugar.
             </p>
           </div>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => void handleLogout()}
+            className="shrink-0 border-zinc-600 bg-zinc-800 text-zinc-100 hover:bg-zinc-700 hover:text-white"
+          >
+            <LogOut className="mr-2 h-4 w-4" />
+            Cerrar sesión
+          </Button>
         </div>
 
         {/* Sistema de Pestañas (Tabs) */}

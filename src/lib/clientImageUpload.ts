@@ -57,6 +57,7 @@ export async function uploadImageToBlob(file: File): Promise<string> {
 
   const res = await fetch("/api/upload", {
     method: "POST",
+    credentials: "include",
     body: formData,
   });
 
