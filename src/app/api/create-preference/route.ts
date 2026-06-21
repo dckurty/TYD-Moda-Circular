@@ -17,7 +17,9 @@ export async function POST(req: Request) {
     
     const host = req.headers.get("host") || "localhost:3000";
     const protocol = req.headers.get("x-forwarded-proto") || "http";
-    const baseUrl = `${protocol}://${host}`;
+    const runtimeBaseUrl = `${protocol}://${host}`;
+    const configuredBaseUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+    const baseUrl = configuredBaseUrl || runtimeBaseUrl;
 
     const result = await preference.create({
       body: {
@@ -38,6 +40,7 @@ export async function POST(req: Request) {
           failure: `${baseUrl}/failure`,
           pending: `${baseUrl}/checkout`
         },
+        notification_url: `${baseUrl}/api/webhook`,
         auto_return: "approved",
       }
     });

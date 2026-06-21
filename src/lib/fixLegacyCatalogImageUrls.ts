@@ -1,7 +1,7 @@
-import { type Product, CATALOG_LOCAL_SEED_SLOTS } from "@/lib/data/products";
+import { type Product } from "@/lib/data/products";
 
-/** Rutas que usamos como parche temporal; se normalizan a `/catalogo-1/{n}.png`. */
-const TEMP_PUBLIC_PATHS = new Set([
+/** Rutas locales antiguas que ya no se usan; se quitan del catálogo al migrar. */
+const LEGACY_LOCAL_PATHS = new Set([
   "/hero-casual.png",
   "/hero-mujer-fresh.png",
   "/hero-hombre.png",
@@ -12,33 +12,23 @@ const TEMP_PUBLIC_PATHS = new Set([
   "/parka-kenzo-como-referencia-1360x768.png",
 ]);
 
-function catalogSlotForProduct(p: Product, index: number): string {
-  const idNum = parseInt(String(p.id).replace(/\D/g, ""), 10);
-  const n = Number.isFinite(idNum) ? idNum : index + 1;
-  const slot = ((Math.max(n, 1) - 1) % CATALOG_LOCAL_SEED_SLOTS) + 1;
-  return `/catalogo-1/${slot}.png`;
+function isLegacyLocalImage(url: string): boolean {
+  const u = url.trim();
+  if (u.startsWith("/catalogo-1/")) return true;
+  if (u.startsWith("/") && LEGACY_LOCAL_PATHS.has(u)) return true;
+  return false;
 }
 
-/**
- * - Rellena `images` vacías con la ficha del catálogo (`/catalogo-1/{n}.png`).
- * - Sustituye rutas de respaldo temporal (`/hero-...`, etc.) por la ficha correspondiente.
- * No toca URLs absolutas (p. ej. Blob) ni rutas que ya son `/catalogo-1/`.
- */
+/** Quita referencias a fotos locales antiguas (`/catalogo-1/*`, heroes temporales). */
 export function fixLegacyCatalogImageUrls(products: Product[]): Product[] {
-  return products.map((p, index) => {
-    const slotUrl = catalogSlotForProduct(p, index);
+  return products.map((p) => {
     const urls = (p.images ?? []).map((u) => u.trim()).filter(Boolean);
+    if (urls.length === 0) return p;
 
-    if (urls.length === 0) {
-      return { ...p, images: [slotUrl] };
-    }
+    const kept = urls.filter((u) => !isLegacyLocalImage(u));
+    if (kept.length === urls.length) return p;
 
-    const onlyTemp = urls.every((u) => u.startsWith("/") && TEMP_PUBLIC_PATHS.has(u));
-    if (onlyTemp) {
-      return { ...p, images: [slotUrl] };
-    }
-
-    return p;
+    return { ...p, images: kept };
   });
 }
 

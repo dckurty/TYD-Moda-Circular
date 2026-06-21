@@ -47,7 +47,7 @@ export function useHydratedCatalog(): boolean {
         /* ignorar errores de red / blob */
       }
 
-      // Catálogo en Blob/localStorage puede seguir con `/catalogo-1/*.png` (404 en producción).
+      // Quita referencias a fotos locales antiguas en Blob/localStorage.
       if (!cancelled) {
         useProductStore.getState().migrateCatalogImagesIfNeeded();
       }

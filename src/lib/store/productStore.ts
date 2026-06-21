@@ -31,7 +31,7 @@ interface ProductStore {
   deleteProduct: (id: string) => void;
   clearAllProductImages: () => void;
   initializeProductsIfNeeded: () => void;
-  /** Reemplaza rutas `/catalogo-1/*.png` rotas y sincroniza Blob si hubo cambios. */
+  /** Quita rutas locales antiguas del catálogo y sincroniza Blob si hubo cambios. */
   migrateCatalogImagesIfNeeded: () => void;
 }
 
