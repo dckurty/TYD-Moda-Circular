@@ -74,9 +74,9 @@ export interface Product {
 }
 
 /** Slots reservados para fotos locales en `public/catalogo-1/`. */
-export const CATALOG_LOCAL_SEED_SLOTS = 9;
+export const CATALOG_LOCAL_SEED_SLOTS = 22;
 
-/** Catálogo de vestidos con fotos en `public/catalogo-1/{1..9}.png`. */
+/** Catálogo con fotos en `public/catalogo-1/{1..22}.png`. */
 export const products: Product[] = [
   {
     id: "p1",
@@ -193,6 +193,175 @@ export const products: Product[] = [
     condition: "en excelente estado",
     environmentalImpact: "Reduce la huella ambiental frente a comprar una prenda nueva equivalente.",
     images: ["/catalogo-1/9.png"],
+    isUnique: true
+  },
+  {
+    id: "p10",
+    name: "Enterizo Index floral",
+    description: "Enterizo amarillo mostaza con estampado floral Index. Escote cruzado y cintura elástica. Talla M.",
+    price: 5000,
+    category: "mujer",
+    type: "vestidos",
+    sizes: ["M"],
+    condition: "en buen estado",
+    environmentalImpact: "Moda circular: damos nueva vida a piezas en excelente estado.",
+    images: ["/catalogo-1/10.png"],
+    isUnique: false
+  },
+  {
+    id: "p11",
+    name: "Pantalón Zara wide leg",
+    description: "Pantalón de pinzas Zara color camel, tiro alto y pierna ancha. Talla M.",
+    price: 10000,
+    category: "mujer",
+    type: "bottoms",
+    sizes: ["M"],
+    condition: "en excelente estado",
+    environmentalImpact: "Extiende la vida útil de una prenda de calidad.",
+    images: ["/catalogo-1/11.png"],
+    isUnique: false
+  },
+  {
+    id: "p12",
+    name: "Parka Columbia 3 en 1",
+    description: "Parka Columbia amarilla desmontable 3 en 1 con forro polar. Talla S.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["S"],
+    condition: "en buen estado",
+    environmentalImpact: "Reutilizamos outdoor wear de calidad, reduciendo residuos textiles.",
+    images: ["/catalogo-1/12.png"],
+    isUnique: true
+  },
+  {
+    id: "p13",
+    name: "Parka Decathlon 3 en 1 bicolor",
+    description: "Parka Decathlon 3 en 1 con cuerpo amarillo mostaza y hombros azul marino. Talla S.",
+    price: 20000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["S"],
+    condition: "en excelente estado",
+    environmentalImpact: "Prenda outdoor reutilizada en lugar de nueva producción.",
+    images: ["/catalogo-1/13.png"],
+    isUnique: true
+  },
+  {
+    id: "p14",
+    name: "Parka Under Armour acolchada",
+    description: "Parka acolchada Under Armour color oliva con capucha. Tallas M/L.",
+    price: 15000,
+    category: "hombre",
+    type: "abrigo",
+    sizes: ["M", "L"],
+    condition: "en buen estado",
+    environmentalImpact: "Fomentamos consumo responsable con prendas de segunda vida.",
+    images: ["/catalogo-1/14.png"],
+    isUnique: false
+  },
+  {
+    id: "p15",
+    name: "Parka Decathlon verde",
+    description: "Parka Decathlon verde sage con capucha y cierre frontal. Talla XS.",
+    price: 12000,
+    category: "unisex",
+    type: "abrigo",
+    sizes: ["XS"],
+    condition: "en buen estado",
+    environmentalImpact: "100% moda circular: prenda reutilizada en perfecto estado.",
+    images: ["/catalogo-1/15.png"],
+    isUnique: false
+  },
+  {
+    id: "p16",
+    name: "Parka Mizuno Outdoor",
+    description: "Parka outdoor Mizuno color crema con capucha forrada. Talla S.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["S"],
+    condition: "en excelente estado",
+    environmentalImpact: "Upcycling de material outdoor de calidad.",
+    images: ["/catalogo-1/16.png"],
+    isUnique: true
+  },
+  {
+    id: "p17",
+    name: "Chaqueta Coreana rosa",
+    description: "Chaqueta puffer estilo coreano color rosa con capucha. Talla XS.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["XS"],
+    condition: "en excelente estado",
+    environmentalImpact: "Evitamos emisiones asociadas a confecciones nuevas.",
+    images: ["/catalogo-1/17.png"],
+    isUnique: true
+  },
+  {
+    id: "p18",
+    name: "Parka Coreana azul celeste",
+    description: "Parka acolchada estilo coreano azul celeste con borde de piel en capucha. Talla M.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["M"],
+    condition: "en buen estado",
+    environmentalImpact: "Moda circular con piezas seleccionadas a mano.",
+    images: ["/catalogo-1/18.png"],
+    isUnique: false
+  },
+  {
+    id: "p19",
+    name: "Parka Coreana negra",
+    description: "Parka negra estilo coreano con capucha de piel sintética. Talla S.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["S"],
+    condition: "en excelente estado",
+    environmentalImpact: "Reduce la huella ambiental frente a comprar nueva.",
+    images: ["/catalogo-1/19.png"],
+    isUnique: true
+  },
+  {
+    id: "p20",
+    name: "Parka Coreana gris",
+    description: "Parka acolchada gris oscuro estilo coreano con capucha de piel. Talla M.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["M"],
+    condition: "en buen estado",
+    environmentalImpact: "Segunda vida para prendas en excelente estado.",
+    images: ["/catalogo-1/20.png"],
+    isUnique: false
+  },
+  {
+    id: "p21",
+    name: "Chaqueta Coreana rosa larga",
+    description: "Chaqueta puffer larga rosa estilo coreano con bordado Parisian. Talla S.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["S"],
+    condition: "en excelente estado",
+    environmentalImpact: "Valoramos piezas únicas de moda circular.",
+    images: ["/catalogo-1/21.png"],
+    isUnique: true
+  },
+  {
+    id: "p22",
+    name: "Chaqueta Coreana roja",
+    description: "Chaqueta puffer roja estilo coreano con capucha de piel. Talla XS.",
+    price: 15000,
+    category: "mujer",
+    type: "abrigo",
+    sizes: ["XS"],
+    condition: "en buen estado",
+    environmentalImpact: "Moda circular: prenda reutilizada con estilo.",
+    images: ["/catalogo-1/22.png"],
     isUnique: true
   }
 ];
