@@ -47,7 +47,7 @@ export function useHydratedCatalog(): boolean {
         /* ignorar errores de red / blob */
       }
 
-      // Quita referencias a fotos locales antiguas en Blob/localStorage.
+      // Normaliza rutas temporales antiguas en Blob/localStorage (no toca /catalogo-1/).
       if (!cancelled) {
         useProductStore.getState().migrateCatalogImagesIfNeeded();
       }

@@ -1,7 +1,7 @@
 import { type Product } from "@/lib/data/products";
 
-/** Rutas locales antiguas que ya no se usan; se quitan del catálogo al migrar. */
-const LEGACY_LOCAL_PATHS = new Set([
+/** Rutas de respaldo temporal usadas antes del catálogo en `public/catalogo-1/`. */
+const LEGACY_TEMP_PATHS = new Set([
   "/hero-casual.png",
   "/hero-mujer-fresh.png",
   "/hero-hombre.png",
@@ -12,20 +12,18 @@ const LEGACY_LOCAL_PATHS = new Set([
   "/parka-kenzo-como-referencia-1360x768.png",
 ]);
 
-function isLegacyLocalImage(url: string): boolean {
+function isLegacyTempImage(url: string): boolean {
   const u = url.trim();
-  if (u.startsWith("/catalogo-1/")) return true;
-  if (u.startsWith("/") && LEGACY_LOCAL_PATHS.has(u)) return true;
-  return false;
+  return u.startsWith("/") && LEGACY_TEMP_PATHS.has(u);
 }
 
-/** Quita referencias a fotos locales antiguas (`/catalogo-1/*`, heroes temporales). */
+/** Quita solo rutas temporales antiguas; conserva `/catalogo-1/*` y URLs de Blob. */
 export function fixLegacyCatalogImageUrls(products: Product[]): Product[] {
   return products.map((p) => {
     const urls = (p.images ?? []).map((u) => u.trim()).filter(Boolean);
     if (urls.length === 0) return p;
 
-    const kept = urls.filter((u) => !isLegacyLocalImage(u));
+    const kept = urls.filter((u) => !isLegacyTempImage(u));
     if (kept.length === urls.length) return p;
 
     return { ...p, images: kept };
